@@ -9,6 +9,7 @@ const InteriorDesignWebsite = () => {
     email: '',
     phone: '',
     projectType: '',
+    houseType: '',
     budget: '',
     location: '',
     timeline: '',
@@ -142,6 +143,7 @@ const InteriorDesignWebsite = () => {
       email: '',
       phone: '',
       projectType: '',
+      houseType: '',
       budget: '',
       location: '',
       timeline: '',
@@ -151,11 +153,17 @@ const InteriorDesignWebsite = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
+    setFormData((prev) => {
+    if (name === "projectType") {
+      return {
+        ...prev,
+        projectType: value,
+        houseType: "", // reset
+      };
+    }
+    return { ...prev, [name]: value };
+  });
+};
 
   const handleSubmit = async (e) => {
   e.preventDefault();
@@ -446,6 +454,27 @@ const InteriorDesignWebsite = () => {
                       <option value="office">Office Space</option>
                     </select>
                   </div>
+                  {formData.projectType === "residential" && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      House Type *
+                    </label>
+                    <select
+                      name="houseType"
+                      value={formData.houseType}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                    >
+                      <option value="">Select house type</option>
+                      <option value="1bhk">1BHK</option>
+                      <option value="2bhk">2BHK</option>
+                      <option value="3bhk">3BHK</option>
+                      <option value="4bhk">4BHK</option>
+                      <option value="villa">Villa</option>
+                    </select>
+                  </div>
+                )}
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -539,6 +568,17 @@ const InteriorDesignWebsite = () => {
           </div>
         </div>
       )}
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/919912300749"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg flex items-center justify-center z-50 transition-transform hover:scale-110"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.52 3.48A11.91 11.91 0 0012.07 0C5.54 0 .07 5.37.07 11.97c0 2.11.56 4.17 1.63 5.97L0 24l6.27-1.63a11.86 11.86 0 005.8 1.49h.01c6.63 0 12.01-5.37 12.01-11.97 0-3.2-1.25-6.2-3.57-8.41zM12.07 21.5a9.63 9.63 0 01-4.9-1.35l-.35-.21-3.72.96.99-3.62-.24-.37a9.47 9.47 0 01-1.49-5.08c0-5.27 4.33-9.55 9.65-9.55a9.6 9.6 0 016.83 2.69 9.47 9.47 0 012.82 6.86c0 5.27-4.33 9.55-9.66 9.55zm5.32-7.16c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.14s-.76.95-.93 1.14c-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.33-1.41-.86-.76-1.45-1.69-1.62-1.98-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.66-1.59-.91-2.18-.24-.58-.48-.5-.66-.51h-.57c-.19 0-.5.07-.76.36s-1 1-1 2.43 1.02 2.82 1.16 3.01c.14.19 2 3.05 4.85 4.28.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.96-1.37.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" />
+        </svg>
+      </a>
 
       {/* Footer */}
       <footer className="bg-black text-white py-12">
@@ -562,9 +602,9 @@ const InteriorDesignWebsite = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>Phone: +91 98765 43210</li>
-                <li>Email: info@ssinteriors.com</li>
-                <li>Location: Hyderabad, India</li>
+                <li>Phone: +91 9912300749</li>
+                <li>Email:  ssinteriorsliving@gmail.com</li>
+                <li>Location: Secunderbad, 500080.</li>
               </ul>
             </div>
             <div>
