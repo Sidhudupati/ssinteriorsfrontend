@@ -198,20 +198,20 @@ const InteriorDesignWebsite = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-40 bg-black/10 backdrop-blur-sm">
+      <nav className="absolute top-0 left-0 right-0 z-40 bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/images/logo3.png" 
+                src="/images/logo7.png" 
                 alt="SS Interiors Logo" 
                 className="h-10 w-10 object-contain"
               />
-              <div className="text-2xl font-bold text-white">
+              <div className="text-3xl font-bold" style={{ color: "#3A5A40" }}>
                 SS INTERIORS
               </div>
             </div>
-            <div className="hidden md:flex space-x-8 text-white">
+            <div className="hidden md:flex space-x-8 " style={{ color: "#3A5A40" }}>
               <a href="#home" className="hover:text-amber-400 transition-colors">Home</a>
               <a href="#projects" className="hover:text-amber-400 transition-colors">Projects</a>
               <a href="#about" className="hover:text-amber-400 transition-colors">About</a>
