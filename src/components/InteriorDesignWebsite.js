@@ -211,7 +211,7 @@ const InteriorDesignWebsite = () => {
                 SS INTERIORS
               </div>
             </div>
-            <div className="hidden md:flex space-x-8 " style={{ color: "#3A5A40" }}>
+            <div className="hidden md:flex space-x-8 font-bold " style={{ color: "#3A5A40" }}>
               <a href="#home" className="hover:text-amber-400 transition-colors">Home</a>
               <a href="#projects" className="hover:text-amber-400 transition-colors">Projects</a>
               <a href="#about" className="hover:text-amber-400 transition-colors">About</a>
