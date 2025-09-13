@@ -182,10 +182,12 @@ const InteriorDesignWebsite = () => {
     );
 
     if (response.ok) {
-      alert("Thank you! Your enquiry has been submitted successfully. We will contact you soon.");
+      const data = await response.json(); // get response body
+      alert(data.message || "Enquiry submitted successfully!"); 
       handleCloseForm();
     } else {
-      alert("There was an error submitting your enquiry. Please try again.");
+      const errorData = await response.json();
+      alert(errorData.message || "There was an error submitting your enquiry. Please try again.");
     }
   } catch (error) {
     console.error("Error:", error);
