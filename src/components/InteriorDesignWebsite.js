@@ -20,12 +20,12 @@ const InteriorDesignWebsite = () => {
   // Hero slider images with overlaid text
   const heroSlides = [
     {
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      image: "https://images.unsplash.com/photo-1667646639495-8865f3ea638b?ixlib=rb-4.1.0&auto=format&fit=crop&w=1920&q=80",
       title: "Your Vision",
       subtitle: "Transformed into Reality"
     },
     {
-      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+      image: "https://images.unsplash.com/photo-1682662045846-77f6e1ce55b4?ixlib=rb-4.1.0&auto=format&fit=crop&w=1920&q=80",
       title: "Our Expertise",
       subtitle: "Crafting Beautiful Spaces"
     },
@@ -42,35 +42,35 @@ const InteriorDesignWebsite = () => {
       id: 1,
       title: "Modern Living Room",
       category: "Residential",
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1638284457192-27d3d0ec51aa?ixlib=rb-4.1.0&auto=format&fit=crop&w=1920&q=80",
       description: "Contemporary design with clean lines and neutral tones"
     },
     {
       id: 2,
       title: "Luxury Kitchen",
       category: "Residential",
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1643034738686-d69e7bc047e1?ixlib=rb-4.1.0&auto=format&fit=crop&w=1920&q=80",
       description: "Modern kitchen with premium finishes and smart storage"
     },
     {
       id: 3,
       title: "Executive Office",
       category: "Commercial",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.pexels.com/photos/33827326/pexels-photo-33827326.jpeg?_gl=1*q5lr9z*_ga*MTk5NTA4MzIzMi4xNzUwOTQ5Mzcz*_ga_8JE65Q40S6*czE3NTc3ODM0MzkkbzYkZzEkdDE3NTc3ODM3ODUkajE0JGwwJGgw",
       description: "Professional workspace designed for productivity"
     },
     {
       id: 4,
       title: "Master Bedroom",
       category: "Residential",
-      image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.pexels.com/photos/6970005/pexels-photo-6970005.jpeg?_gl=1*zj4ip2*_ga*MTk5NTA4MzIzMi4xNzUwOTQ5Mzcz*_ga_8JE65Q40S6*czE3NTc3ODM0MzkkbzYkZzEkdDE3NTc3ODQxODUkajU5JGwwJGgw",
       description: "Serene bedroom sanctuary with elegant touches"
     },
     {
       id: 5,
       title: "Restaurant Interior",
       category: "Commercial",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1684675144506-b181f5209c5a?ixlib=rb-4.1.0&auto=format&fit=crop&w=1920&q=80",
       description: "Warm and inviting dining atmosphere"
     },
     {
@@ -613,9 +613,6 @@ const InteriorDesignWebsite = () => {
               <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>Instagram</li>
-                <li>Facebook</li>
-                <li>LinkedIn</li>
-                <li>Pinterest</li>
               </ul>
             </div>
           </div>
