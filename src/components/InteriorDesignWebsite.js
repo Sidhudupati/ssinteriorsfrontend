@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Award, Users, Clock, Star, CheckCircle, ArrowRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Award, Users, Clock, Star, ArrowRight } from 'lucide-react';
 
 const InteriorDesignWebsite = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
