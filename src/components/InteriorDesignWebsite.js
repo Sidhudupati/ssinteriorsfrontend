@@ -202,28 +202,29 @@ const InteriorDesignWebsite = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-40 bg-white shadow-md">
+      <nav className="absolute top-0 left-0 right-0 z-40 bg-gradient-to-r from-orange-500 to-red-500 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
               <img 
                 src="/images/logo7.png" 
                 alt="SS Interiors Logo" 
-                className="h-10 w-10 object-contain"
+                className="h-12 w-12 object-contain"
               />
-              <div className="text-3xl font-bold" style={{ color: "#3A5A40" }}>
+              <div className="text-4xl font-black tracking-wider text-white drop-shadow-lg" style={{ fontFamily: 'Arial Black, sans-serif', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
                 SS INTERIORS
               </div>
             </div>
-            <div className="hidden md:flex space-x-8 font-bold " style={{ color: "#3A5A40" }}>
-              <a href="#home" className="hover:text-orange-500 transition-colors">Home</a>
-              <a href="#projects" className="hover:text-orange-500 transition-colors">Projects</a>
-              <a href="#about" className="hover:text-orange-500 transition-colors">About</a>
-              <a href="#contact" className="hover:text-orange-500 transition-colors">Contact</a>
+            <div className="hidden md:flex space-x-8 font-bold text-white">
+              <a href="#home" className="hover:text-orange-200 transition-colors text-lg">Home</a>
+              <a href="#projects" className="hover:text-orange-200 transition-colors text-lg">Projects</a>
+              <a href="#about" className="hover:text-orange-200 transition-colors text-lg">About</a>
+              <a href="#contact" className="hover:text-orange-200 transition-colors text-lg">Contact</a>
             </div>
           </div>
         </div>
       </nav>
+
 
       {/* Hero Section with Sliding Images */}
       <section id="home" className="relative h-screen overflow-hidden">
