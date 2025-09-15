@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Award, Users, Clock, Star, ArrowRight } from 'lucide-react';
+import { Award, Users, Clock, Star, ArrowRight } from 'lucide-react';
 
 const InteriorDesignWebsite = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -83,7 +83,6 @@ const InteriorDesignWebsite = () => {
   ];
 
   // Why choose us features
-
   const features = [
     {
       icon: <Award className="w-8 h-8 text-white" />,
@@ -117,22 +116,15 @@ const InteriorDesignWebsite = () => {
     }
   ];
 
-
   // Auto-slide functionality
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(timer);
   }, [heroSlides.length]);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-  };
 
   const handleEnquireNow = () => {
     setShowForm(true);
@@ -184,7 +176,7 @@ const InteriorDesignWebsite = () => {
     );
 
     if (response.ok) {
-      const data = await response.json(); // get response body
+      const data = await response.json();
       alert(data.message || "Enquiry submitted successfully!"); 
       handleCloseForm();
     } else {
@@ -202,7 +194,7 @@ const InteriorDesignWebsite = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-40 bg-gradient-to-r from-orange-500 to-red-500 shadow-lg">
+      <nav className="absolute top-0 left-0 right-0 z-40 bg-gradient-to-r from-gray-800 to-gray-900 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3">
@@ -216,89 +208,114 @@ const InteriorDesignWebsite = () => {
               </div>
             </div>
             <div className="hidden md:flex space-x-8 font-bold text-white">
-              <a href="#home" className="hover:text-orange-200 transition-colors text-lg">Home</a>
-              <a href="#projects" className="hover:text-orange-200 transition-colors text-lg">Projects</a>
-              <a href="#about" className="hover:text-orange-200 transition-colors text-lg">About</a>
-              <a href="#contact" className="hover:text-orange-200 transition-colors text-lg">Contact</a>
+              <a href="#home" className="hover:text-gray-300 transition-colors text-lg">Home</a>
+              <a href="#projects" className="hover:text-gray-300 transition-colors text-lg">Projects</a>
+              <a href="#about" className="hover:text-gray-300 transition-colors text-lg">About</a>
+              <a href="#contact" className="hover:text-gray-300 transition-colors text-lg">Contact</a>
             </div>
           </div>
         </div>
       </nav>
 
-
-      {/* Hero Section with Sliding Images */}
-      
+      {/* Hero Section with Enhanced Sliding Images */}
       <section id="home" className="relative w-full h-screen overflow-hidden">
-        {heroSlides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-all duration-[1200ms] ease-in-out transform
-              ${index === currentSlide 
-                ? 'opacity-100 scale-100 translate-x-0 z-20' 
-                : 'opacity-0 scale-105 -translate-x-10 z-10'}
-            `}
-            style={{
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            {/* Text Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-              <div className="bg-black/50 p-4 rounded-lg">
-                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg text-orange-500">
-                  {slide.title}
-                </h1>
-                <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl font-bold drop-shadow-md text-orange-500">
-                  {slide.subtitle}
-                </p>
-              </div>
-              <button 
-                className="mt-6 px-6 py-3 bg-orange-500 hover:bg-orange-600 transition rounded-lg shadow-lg text-lg font-semibold"
-                onClick={() => setShowForm(true)}
-              >
-                Get Free Quote
-              </button>
-            </div>
-          </div>
-        ))}
-
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-orange-600 p-3 rounded-full shadow-lg hover:bg-orange-700 transition"
-          aria-label="Previous Slide"
-        >
-          <ChevronLeft className="text-white w-6 h-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-orange-600 p-3 rounded-full shadow-lg hover:bg-orange-700 transition"
-          aria-label="Next Slide"
-        >
-          <ChevronRight className="text-white w-6 h-6" />
-        </button>
-
-        {/* Progress Dots */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-          {heroSlides.map((_, i) => (
+        {heroSlides.map((slide, index) => {
+          const isActive = index === currentSlide;
+          const isPrev = index === (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+          const isNext = index === (currentSlide + 1) % heroSlides.length;
+          
+          return (
             <div
+              key={index}
+              className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out transform
+                ${isActive 
+                  ? 'opacity-100 scale-100 translate-x-0 z-30 rotate-0' 
+                  : isPrev 
+                    ? 'opacity-30 scale-110 -translate-x-full z-10 rotate-1' 
+                    : isNext 
+                      ? 'opacity-30 scale-90 translate-x-full z-10 -rotate-1'
+                      : 'opacity-0 scale-125 translate-x-0 z-5 rotate-2'}
+              `}
+              style={{
+                backgroundImage: `linear-gradient(45deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url(${slide.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                filter: isActive ? 'none' : 'blur(2px)',
+              }}
+            >
+              {/* Animated particles overlay */}
+              <div className="absolute inset-0 opacity-20">
+                <div className={`absolute w-2 h-2 bg-gray-300 rounded-full animate-pulse ${isActive ? 'animate-bounce' : ''}`} style={{top: '20%', left: '10%', animationDelay: '0s'}}></div>
+                <div className={`absolute w-1 h-1 bg-gray-400 rounded-full animate-pulse ${isActive ? 'animate-bounce' : ''}`} style={{top: '60%', left: '80%', animationDelay: '1s'}}></div>
+                <div className={`absolute w-3 h-3 bg-gray-200 rounded-full animate-pulse ${isActive ? 'animate-bounce' : ''}`} style={{top: '30%', right: '15%', animationDelay: '2s'}}></div>
+                <div className={`absolute w-2 h-2 bg-gray-500 rounded-full animate-pulse ${isActive ? 'animate-bounce' : ''}`} style={{bottom: '20%', left: '20%', animationDelay: '0.5s'}}></div>
+              </div>
+
+              {/* Text Content with enhanced animation */}
+              <div className={`absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 transition-all duration-1000 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                
+                  <h1 className={`text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg text-gray-100 mb-2 transition-all duration-1200 ${isActive ? 'scale-100 opacity-100' : 'scale-90 opacity-0'}`}>
+                    {slide.title}
+                  </h1>
+                  <div className={`h-1 w-24 bg-gradient-to-r from-gray-400 to-gray-600 mx-auto mb-4 transition-all duration-1000 ${isActive ? 'scale-100' : 'scale-0'}`}></div>
+                  <p className={`text-lg sm:text-xl md:text-2xl max-w-3xl font-bold drop-shadow-md text-gray-200 transition-all duration-1400 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                    {slide.subtitle}
+                  </p>
+                {/* <button 
+                  className={`mt-8 px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 transition-all duration-300 rounded-full shadow-2xl text-lg font-semibold transform hover:scale-105 hover:shadow-gray-500/50 border border-gray-400/30 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  onClick={() => setShowForm(true)}
+                  style={{transitionDelay: '0.5s'}}
+                >
+                  Get Free Quote
+                </button> */}
+              </div>
+            </div>
+          );
+        })}
+
+
+
+        {/* Fixed Get Free Quote Button */}
+        <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-40">
+          <button 
+            className="px-8 py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 transition-all duration-300 rounded-full shadow-2xl text-lg font-semibold transform hover:scale-105 hover:shadow-gray-500/50 border border-gray-400/30 text-white"
+            onClick={() => setShowForm(true)}
+          >
+            Get Free Quote
+          </button>
+        </div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4">
+          {heroSlides.map((_, i) => (
+            <button
               key={i}
-              className={`w-4 h-4 rounded-full transition-all duration-500 ${
-                i === currentSlide ? 'bg-orange-500 scale-110' : 'bg-gray-300'
+              onClick={() => setCurrentSlide(i)}
+              className={`relative transition-all duration-500 rounded-full ${
+                i === currentSlide 
+                  ? 'w-12 h-4 bg-gradient-to-r from-gray-400 to-gray-600 scale-110 shadow-lg' 
+                  : 'w-4 h-4 bg-gray-400/60 hover:bg-gray-400/80'
               }`}
-            />
+            >
+              {i === currentSlide && (
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-300 to-gray-500 rounded-full animate-pulse"></div>
+              )}
+            </button>
           ))}
+        </div>
+
+        {/* Floating decorative elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 border-2 border-gray-300/20 rounded-full animate-spin-slow"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-gray-400/10 rounded-full animate-pulse"></div>
+          <div className="absolute top-3/4 left-1/3 w-24 h-24 border-4 border-gray-500/15 rounded-full animate-bounce-slow"></div>
         </div>
       </section>
 
-
       {/* Previous Projects Section */}
-      <section id="projects" className="py-20 bg-gradient-to-br from-orange-400 via-orange-500 to-red-500">
+      <section id="projects" className="py-20 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-4">Our Previous Projects</h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold text-gray-800 mb-4">Our Previous Projects</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Discover our portfolio of stunning interior designs that showcase our expertise 
               in creating beautiful, functional spaces.
             </p>
@@ -308,7 +325,7 @@ const InteriorDesignWebsite = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-gradient-to-br from-orange-200 via-orange-300 to-amber-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-orange-100"
+                className="bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-gray-200"
               >
                 <div className="aspect-w-16 aspect-h-12 overflow-hidden">
                   <img
@@ -319,12 +336,12 @@ const InteriorDesignWebsite = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-bold text-orange-900">{project.title}</h3>
-                    <span className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <h3 className="text-xl font-bold text-gray-800">{project.title}</h3>
+                    <span className="bg-gradient-to-r from-gray-600 to-gray-700 text-white px-3 py-1 rounded-full text-sm font-medium">
                       {project.category}
                     </span>
                   </div>
-                  <p className="text-orange-800 leading-relaxed font-medium">{project.description}</p>
+                  <p className="text-gray-600 leading-relaxed font-medium">{project.description}</p>
                 </div>
               </div>
             ))}
@@ -333,11 +350,11 @@ const InteriorDesignWebsite = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-br from-red-500 via-orange-600 to-yellow-500">
+      <section className="py-20 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-4">Why Choose Us</h2>
-            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               We combine creativity, expertise, and dedication to deliver exceptional 
               interior design solutions that exceed expectations.
             </p>
@@ -347,13 +364,13 @@ const InteriorDesignWebsite = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="text-center p-8 rounded-2xl bg-gradient-to-br from-orange-400 to-red-400 hover:from-orange-300 hover:to-red-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-orange-200"
+                className="text-center p-8 rounded-2xl bg-gradient-to-br from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-gray-500"
               >
-                <div className="flex justify-center mb-6 bg-orange-600 w-16 h-16 rounded-full mx-auto items-center">
+                <div className="flex justify-center mb-6 bg-gradient-to-r from-gray-700 to-gray-800 w-16 h-16 rounded-full mx-auto items-center">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-orange-100 leading-relaxed font-medium">{feature.description}</p>
+                <p className="text-gray-200 leading-relaxed font-medium">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -361,7 +378,7 @@ const InteriorDesignWebsite = () => {
       </section>
 
       {/* Final Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+      <section className="py-20 bg-gradient-to-r from-gray-900 to-black text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-5xl font-bold mb-6">Ready to Transform Your Space?</h2>
           <p className="text-xl mb-8 text-gray-300">
@@ -370,7 +387,7 @@ const InteriorDesignWebsite = () => {
           </p>
           <button
             onClick={handleEnquireNow}
-            className="bg-orange-600 hover:bg-orange-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            className="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl border border-gray-500/30"
           >
             Enquire Now
           </button>
@@ -379,14 +396,14 @@ const InteriorDesignWebsite = () => {
 
       {/* Contact Form Modal */}
       {showForm && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200">
             <div className="p-8">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-3xl font-bold text-gray-900">Get A Quote</h2>
                 <button
                   onClick={handleCloseForm}
-                  className="text-gray-500 hover:text-gray-700 text-2xl font-bold w-8 h-8 flex items-center justify-center"
+                  className="text-gray-500 hover:text-gray-700 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
                 >
                   ×
                 </button>
@@ -404,7 +421,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -419,7 +436,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -436,7 +453,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -450,7 +467,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.projectType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                     >
                       <option value="">Select project type</option>
                       <option value="residential">Residential</option>
@@ -469,7 +486,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.houseType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                     >
                       <option value="">Select house type</option>
                       <option value="1bhk">1BHK</option>
@@ -491,7 +508,7 @@ const InteriorDesignWebsite = () => {
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                     >
                       <option value="">Select budget range</option>
                       <option value="under-5-lakh">Under ₹5 Lakh</option>
@@ -512,7 +529,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.location}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                       placeholder="Project location"
                     />
                   </div>
@@ -526,7 +543,7 @@ const InteriorDesignWebsite = () => {
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors"
                   >
                     <option value="">Select timeline</option>
                     <option value="immediate">Immediate (1-2 months)</option>
@@ -545,7 +562,7 @@ const InteriorDesignWebsite = () => {
                     value={formData.description}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 outline-none transition-colors resize-none"
                     placeholder="Tell us about your project requirements, style preferences, or any specific needs..."
                   />
                 </div>
@@ -554,7 +571,7 @@ const InteriorDesignWebsite = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`flex-1 bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+                    className={`flex-1 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
                       isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
                     }`}
                   >
@@ -573,6 +590,7 @@ const InteriorDesignWebsite = () => {
           </div>
         </div>
       )}
+
       {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/919912300749"
@@ -624,6 +642,26 @@ const InteriorDesignWebsite = () => {
           </div>
         </div>
       </footer>
+
+      <style jsx>{`
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes bounce-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 10s linear infinite;
+        }
+        
+        .animate-bounce-slow {
+          animation: bounce-slow 3s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };
