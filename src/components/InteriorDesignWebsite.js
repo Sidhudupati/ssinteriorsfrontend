@@ -249,7 +249,7 @@ const InteriorDesignWebsite = () => {
                 {slide.title}
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl drop-shadow-md">
-                {slide.subtitile}
+                {slide.subtitle}
               </p>
               <button 
                 className="mt-6 px-6 py-3 bg-orange-500 hover:bg-orange-600 transition rounded-lg shadow-lg text-lg font-semibold"
