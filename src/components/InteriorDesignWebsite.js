@@ -229,7 +229,7 @@ const InteriorDesignWebsite = () => {
       {/* Hero Section with Sliding Images */}
       {/* Hero Section with Fantastic Orange Animation */}
       <section id="home" className="relative w-full h-screen overflow-hidden">
-        {slides.map((slide, index) => (
+        {heroSlides.map((slide, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-all duration-[1200ms] ease-in-out transform
@@ -282,7 +282,7 @@ const InteriorDesignWebsite = () => {
 
         {/* Progress Dots */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-          {slides.map((_, i) => (
+          {heroSlides.map((_, i) => (
             <div
               key={i}
               className={`w-4 h-4 rounded-full transition-all duration-500 ${
