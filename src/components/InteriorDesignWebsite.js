@@ -163,6 +163,9 @@ const InteriorDesignWebsite = () => {
   e.preventDefault();
   setIsSubmitting(true);
 
+  alert("✅ Thank you for contacting us! We'll get back to you shortly.");
+  handleCloseForm();
+
   try {
     const response = await fetch(
       `${process.env.REACT_APP_API_URL}/api/enquiry`,
@@ -177,15 +180,13 @@ const InteriorDesignWebsite = () => {
 
     if (response.ok) {
       const data = await response.json();
-      alert(data.message || "Enquiry submitted successfully!"); 
-      handleCloseForm();
+      console.log("Enquiry sent:", data.message || "Success");
     } else {
       const errorData = await response.json();
-      alert(errorData.message || "There was an error submitting your enquiry. Please try again.");
+      console.error("Submission failed:", errorData.message);
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("There was an error submitting your enquiry. Please try again.");
   } finally {
     setIsSubmitting(false);
   }
