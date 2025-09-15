@@ -633,7 +633,7 @@ const InteriorDesignWebsite = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>Instagram</li>
+                <li><a href="https://www.instagram.com/ssinteriorshyd/" target="_blank">Instagram</a></li>
               </ul>
             </div>
           </div>
