@@ -245,10 +245,10 @@ const InteriorDesignWebsite = () => {
           >
             {/* Text Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg text-orange-500">
                 {slide.title}
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl drop-shadow-md">
+              <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl drop-shadow-md text-orange-500">
                 {slide.subtitle}
               </p>
               <button 
