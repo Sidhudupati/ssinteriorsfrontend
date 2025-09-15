@@ -245,12 +245,14 @@ const InteriorDesignWebsite = () => {
           >
             {/* Text Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg text-orange-500">
-                {slide.title}
-              </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl drop-shadow-md text-orange-500">
-                {slide.subtitle}
-              </p>
+              <div className="bg-black/50 p-4 rounded-lg">
+                <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg text-orange-500">
+                  {slide.title}
+                </h1>
+                <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl font-bold drop-shadow-md text-orange-500">
+                  {slide.subtitle}
+                </p>
+              </div>
               <button 
                 className="mt-6 px-6 py-3 bg-orange-500 hover:bg-orange-600 transition rounded-lg shadow-lg text-lg font-semibold"
                 onClick={() => setShowForm(true)}
