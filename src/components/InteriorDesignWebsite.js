@@ -83,38 +83,40 @@ const InteriorDesignWebsite = () => {
   ];
 
   // Why choose us features
+
   const features = [
     {
-      icon: <Award className="w-8 h-8 text-amber-600" />,
-      title: "Award-Winning Design",
-      description: "Recognized excellence in interior design with multiple industry awards and certifications."
+      icon: <Award className="w-8 h-8 text-white" />,
+      title: "Creative Designs",
+      description: "Unique concepts tailored to your lifestyle."
     },
     {
-      icon: <Users className="w-8 h-8 text-amber-600" />,
+      icon: <Users className="w-8 h-8 text-white" />,
+      title: "Budget-Friendly Solutions",
+      description: "Stylish interiors that fit your budget."
+    },
+    {
+      icon: <Star className="w-8 h-8 text-white" />,
+      title: "Quality Materials",
+      description: "We choose only the best for lasting elegance."
+    },
+    {
+      icon: <Users className="w-8 h-8 text-white" />,
       title: "Expert Team",
-      description: "Skilled designers and architects with years of experience in creating stunning interiors."
+      description: "Skilled professionals with years of experience."
     },
     {
-      icon: <Clock className="w-8 h-8 text-amber-600" />,
-      title: "Timely Delivery",
-      description: "We respect your schedule and ensure projects are completed on time without compromising quality."
+      icon: <Clock className="w-8 h-8 text-white" />,
+      title: "On-Time Delivery",
+      description: "Projects completed within promised timelines."
     },
     {
-      icon: <Star className="w-8 h-8 text-amber-600" />,
-      title: "Premium Quality",
-      description: "Only the finest materials and craftsmanship to ensure lasting beauty and durability."
-    },
-    {
-      icon: <CheckCircle className="w-8 h-8 text-amber-600" />,
-      title: "Complete Service",
-      description: "From concept to completion, we handle every aspect of your interior design project."
-    },
-    {
-      icon: <ArrowRight className="w-8 h-8 text-amber-600" />,
-      title: "Future-Ready",
-      description: "Designs that adapt to changing needs while maintaining timeless appeal and functionality."
+      icon: <ArrowRight className="w-8 h-8 text-white" />,
+      title: "After-Sales Support",
+      description: "We care even after project completion."
     }
   ];
+
 
   // Auto-slide functionality
   useEffect(() => {
@@ -214,10 +216,10 @@ const InteriorDesignWebsite = () => {
               </div>
             </div>
             <div className="hidden md:flex space-x-8 font-bold " style={{ color: "#3A5A40" }}>
-              <a href="#home" className="hover:text-amber-400 transition-colors">Home</a>
-              <a href="#projects" className="hover:text-amber-400 transition-colors">Projects</a>
-              <a href="#about" className="hover:text-amber-400 transition-colors">About</a>
-              <a href="#contact" className="hover:text-amber-400 transition-colors">Contact</a>
+              <a href="#home" className="hover:text-orange-500 transition-colors">Home</a>
+              <a href="#projects" className="hover:text-orange-500 transition-colors">Projects</a>
+              <a href="#about" className="hover:text-orange-500 transition-colors">About</a>
+              <a href="#contact" className="hover:text-orange-500 transition-colors">Contact</a>
             </div>
           </div>
         </div>
@@ -255,9 +257,9 @@ const InteriorDesignWebsite = () => {
             </p>
             <button
               onClick={handleEnquireNow}
-              className="bg-amber-600 hover:bg-amber-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
             >
-              Enquire Now
+              Get free quote
             </button>
           </div>
         </div>
@@ -291,11 +293,11 @@ const InteriorDesignWebsite = () => {
       </section>
 
       {/* Previous Projects Section */}
-      <section id="projects" className="py-20 bg-gray-50">
+      <section id="projects" className="py-20 bg-gradient-to-br from-orange-400 via-orange-500 to-red-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">Our Previous Projects</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold text-white mb-4">Our Previous Projects</h2>
+            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
               Discover our portfolio of stunning interior designs that showcase our expertise 
               in creating beautiful, functional spaces.
             </p>
@@ -305,7 +307,7 @@ const InteriorDesignWebsite = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-gradient-to-br from-orange-200 via-orange-300 to-amber-200 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-orange-100"
               >
                 <div className="aspect-w-16 aspect-h-12 overflow-hidden">
                   <img
@@ -316,12 +318,12 @@ const InteriorDesignWebsite = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-bold text-gray-900">{project.title}</h3>
-                    <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <h3 className="text-xl font-bold text-orange-900">{project.title}</h3>
+                    <span className="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                       {project.category}
                     </span>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">{project.description}</p>
+                  <p className="text-orange-800 leading-relaxed font-medium">{project.description}</p>
                 </div>
               </div>
             ))}
@@ -330,11 +332,11 @@ const InteriorDesignWebsite = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-red-500 via-orange-600 to-yellow-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold text-white mb-4">Why Choose Us</h2>
+            <p className="text-xl text-orange-100 max-w-3xl mx-auto">
               We combine creativity, expertise, and dedication to deliver exceptional 
               interior design solutions that exceed expectations.
             </p>
@@ -344,13 +346,13 @@ const InteriorDesignWebsite = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="text-center p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="text-center p-8 rounded-2xl bg-gradient-to-br from-orange-400 to-red-400 hover:from-orange-300 hover:to-red-300 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-orange-200"
               >
-                <div className="flex justify-center mb-6">
+                <div className="flex justify-center mb-6 bg-orange-600 w-16 h-16 rounded-full mx-auto items-center">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                <p className="text-orange-100 leading-relaxed font-medium">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -367,7 +369,7 @@ const InteriorDesignWebsite = () => {
           </p>
           <button
             onClick={handleEnquireNow}
-            className="bg-amber-600 hover:bg-amber-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
             Enquire Now
           </button>
@@ -401,7 +403,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -416,7 +418,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -433,7 +435,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -447,7 +449,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.projectType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                     >
                       <option value="">Select project type</option>
                       <option value="residential">Residential</option>
@@ -466,7 +468,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.houseType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                     >
                       <option value="">Select house type</option>
                       <option value="1bhk">1BHK</option>
@@ -488,7 +490,7 @@ const InteriorDesignWebsite = () => {
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                     >
                       <option value="">Select budget range</option>
                       <option value="under-5-lakh">Under ₹5 Lakh</option>
@@ -509,7 +511,7 @@ const InteriorDesignWebsite = () => {
                       value={formData.location}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                       placeholder="Project location"
                     />
                   </div>
@@ -523,7 +525,7 @@ const InteriorDesignWebsite = () => {
                     name="timeline"
                     value={formData.timeline}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors"
                   >
                     <option value="">Select timeline</option>
                     <option value="immediate">Immediate (1-2 months)</option>
@@ -542,7 +544,7 @@ const InteriorDesignWebsite = () => {
                     value={formData.description}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-colors resize-none"
                     placeholder="Tell us about your project requirements, style preferences, or any specific needs..."
                   />
                 </div>
@@ -551,7 +553,7 @@ const InteriorDesignWebsite = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`flex-1 bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
+                    className={`flex-1 bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
                       isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'
                     }`}
                   >
