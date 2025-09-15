@@ -227,7 +227,7 @@ const InteriorDesignWebsite = () => {
 
 
       {/* Hero Section with Sliding Images */}
-      {/* Hero Section with Fantastic Orange Animation */}
+      
       <section id="home" className="relative w-full h-screen overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
@@ -243,22 +243,19 @@ const InteriorDesignWebsite = () => {
               backgroundPosition: "center",
             }}
           >
-            {/* Orange Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/60 via-orange-500/40 to-transparent"></div>
-
             {/* Text Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg animate-fadeInUp">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg">
                 {slide.title}
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl drop-shadow-md animate-fadeInUp delay-200">
+              <p className="text-lg sm:text-xl md:text-2xl mt-4 max-w-3xl drop-shadow-md">
                 {slide.description}
               </p>
               <button 
-                className="mt-6 px-6 py-3 bg-orange-500 hover:bg-orange-600 transition rounded-lg shadow-lg text-lg font-semibold animate-bounce"
+                className="mt-6 px-6 py-3 bg-orange-500 hover:bg-orange-600 transition rounded-lg shadow-lg text-lg font-semibold"
                 onClick={() => setShowForm(true)}
               >
-                Get Free Quote
+                Get Free Consultation
               </button>
             </div>
           </div>
