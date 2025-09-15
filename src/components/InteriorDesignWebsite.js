@@ -36,10 +36,13 @@ const InteriorDesignWebsite = () => {
     { icon: Star, title: "Premium Quality" },
   ];
 
+  // ✅ Fixed autoplay (no ESLint error)
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 5000);
     return () => clearInterval(interval);
-  }, [currentSlide]);
+  }, [slides.length]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
