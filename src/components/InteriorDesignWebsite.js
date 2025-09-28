@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Award, Users, Clock, Star, ArrowRight } from 'lucide-react';
+import SuccessPopup from "./SuccessPopup"
 
 const InteriorDesignWebsite = () => {
+  const [showSuccess, setShowSuccess] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,6 +18,7 @@ const InteriorDesignWebsite = () => {
     description: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
 
   // Hero slider images with overlaid text
   const heroSlides = [
@@ -162,8 +165,9 @@ const InteriorDesignWebsite = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
   setIsSubmitting(true);
+  setShowSuccess(true);
 
-  alert("✅ Thank you for contacting us! We'll get back to you shortly.");
+  //alert("✅ Thank you for contacting us! We'll get back to you shortly.");
   handleCloseForm();
 
   try {
@@ -603,6 +607,10 @@ const InteriorDesignWebsite = () => {
           <path d="M20.52 3.48A11.91 11.91 0 0012.07 0C5.54 0 .07 5.37.07 11.97c0 2.11.56 4.17 1.63 5.97L0 24l6.27-1.63a11.86 11.86 0 005.8 1.49h.01c6.63 0 12.01-5.37 12.01-11.97 0-3.2-1.25-6.2-3.57-8.41zM12.07 21.5a9.63 9.63 0 01-4.9-1.35l-.35-.21-3.72.96.99-3.62-.24-.37a9.47 9.47 0 01-1.49-5.08c0-5.27 4.33-9.55 9.65-9.55a9.6 9.6 0 016.83 2.69 9.47 9.47 0 012.82 6.86c0 5.27-4.33 9.55-9.66 9.55zm5.32-7.16c-.29-.14-1.72-.85-1.99-.95-.27-.1-.46-.14-.66.14s-.76.95-.93 1.14c-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.33-1.41-.86-.76-1.45-1.69-1.62-1.98-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.66-1.59-.91-2.18-.24-.58-.48-.5-.66-.51h-.57c-.19 0-.5.07-.76.36s-1 1-1 2.43 1.02 2.82 1.16 3.01c.14.19 2 3.05 4.85 4.28.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.72-.7 1.96-1.37.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z" />
         </svg>
       </a>
+      
+      {showSuccess && (
+        <SuccessPopup onClose={() => setShowSuccess(false)} />
+      )}
 
       {/* Footer */}
       <footer className="bg-black text-white py-12">
