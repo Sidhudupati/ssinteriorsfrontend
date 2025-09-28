@@ -34,7 +34,6 @@ const SuccessPopup = ({ onClose }) => {
         >
           Close
         </button>
-        <p className="mt-3 text-sm text-gray-400">(Closing in 2s...)</p>
       </motion.div>
     </div>
   );
